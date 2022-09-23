@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        const int MAX = 1000000;
+        const long MAX = 1000000;
 
         static void Main(string[] args)
         {
@@ -31,15 +31,15 @@
         // MAXまでの素数を求める（直列）
         static void PrimeTest()
         {
-            for (int i = 2; i <= MAX; i++)
+            for (long i = 2; i <= MAX; i++)
             {
                 JudgePrime(i);
             }
         }
 
-        static void JudgePrime(int target)
+        static void JudgePrime(long target)
         {
-            for (int i = 2; i <= target; i++)
+            for (long i = 2; i <= target; i++)
             {
                 if (i == target)
                 {
