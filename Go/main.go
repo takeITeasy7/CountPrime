@@ -8,7 +8,7 @@ import (
 )
 
 // 求める素数の最大値
-const MAX = 1000000
+const MAX int32 = 1000000
 
 func main() {
 	// 時間計測開始
@@ -30,9 +30,10 @@ func main() {
 // MAXまでの素数を求める（並列）
 func primeTestParallel() {
 	var wg sync.WaitGroup
-	for i := 2; i <= MAX; i++ {
+	var i int32
+	for i = 2; i <= MAX; i++ {
 		wg.Add(1)
-		go func(target int) {
+		go func(target int32) {
 			defer wg.Done()
 			judgePrime(target)
 		}(i)
@@ -42,14 +43,16 @@ func primeTestParallel() {
 
 // MAXまでの素数を求める（直列）
 func primeTest() {
-	for i := 2; i <= MAX; i++ {
+	var i int32
+	for i = 2; i <= MAX; i++ {
 		judgePrime(i)
 	}
 }
 
 // 素数を求める
-func judgePrime(target int) {
-	for i := 2; i <= target; i++ {
+func judgePrime(target int32) {
+	var i int32
+	for i = 2; i <= target; i++ {
 		if target == i {
 			// fmt.Println(target)	// 計測時はコメントアウト
 		} else if target%i == 0 {
